@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react'
 
 function App() {
+  const [change, chnageto] = useState('X')
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='box'>
+        <tr>
+          <th><button>{change}</button></th>
+          <th>-</th>
+          <th>-</th>
+        </tr>
+        <tr>
+          <th>-</th>
+          <th>-</th>
+          <th>-</th>
+        </tr>
+        <tr>
+          <th>-</th>
+          <th>-</th>
+          <th>-</th>
+        </tr>
+      </div>
     </div>
   );
 }

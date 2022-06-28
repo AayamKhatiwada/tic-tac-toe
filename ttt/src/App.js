@@ -2,27 +2,37 @@ import './App.css';
 import {useState} from 'react'
 
 function App() {
-  const [change, chnageto] = useState('X')
-
+  const [turn , change] = useState('x')
+  const handle = () =>{
+    if (turn === 'x'){
+      change(turn => turn = 'o')
+    }else{
+      change(turn => turn = 'x')
+    }
+  }
 
   return (
     <div className="App">
       <div className='box'>
-        <tr>
-          <th><button>{change}</button></th>
-          <th>-</th>
-          <th>-</th>
-        </tr>
-        <tr>
-          <th>-</th>
-          <th>-</th>
-          <th>-</th>
-        </tr>
-        <tr>
-          <th>-</th>
-          <th>-</th>
-          <th>-</th>
-        </tr>
+        <table>
+          <tbody>
+            <tr>
+              <td onClick={()=>handle()}>{turn}</td>
+              <td onClick={()=>handle()}>{turn}</td>
+              <td onClick={()=>handle()}>{turn}</td>
+            </tr>
+            <tr>
+              <td onClick={()=>handle()}>{turn}</td>
+              <td onClick={()=>handle()}>{turn}</td>
+              <td onClick={()=>handle()}>{turn}</td>
+            </tr>
+            <tr>
+              <td onClick={()=>handle()}>{turn}</td>
+              <td onClick={()=>handle()}>{turn}</td>
+              <td onClick={()=>handle()}>{turn}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );

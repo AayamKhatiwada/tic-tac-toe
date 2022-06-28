@@ -17,6 +17,7 @@ function App() {
         <table>
           <tbody>
             <tr>
+              
               <td onClick={()=>handle()}>{turn}</td>
               <td onClick={()=>handle()}>{turn}</td>
               <td onClick={()=>handle()}>{turn}</td>

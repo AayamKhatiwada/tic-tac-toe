@@ -30,12 +30,23 @@ function App() {
             squares[element[1]] === '' ||
             squares[element[2]] === ''
         ){
-
+          
         }else if(squares[element[0]] === squares[element[1]] && 
           squares[element[1]] === squares[element[2]]){
-            setwinner(squares[element[0]])
+            setwinner(squares[element[0]]+' is the winner')
           }
       });
+      if (squares[0] !=='' &&
+      squares[1] !=='' &&
+      squares[2] !=='' &&
+      squares[3] !=='' &&
+      squares[4] !=='' &&
+      squares[5] !=='' &&
+      squares[6] !=='' &&
+      squares[7] !=='' &&
+      squares[8] !==''){
+        setwinner('It\'s draw')
+      }
     }
   }
 
@@ -58,13 +69,18 @@ function App() {
     checkWinner(squares)
   }
 
+  const restart = () => {
+    setwinner('')
+    setcell(Array(9).fill(''))
+  }
+
   return (
     <div className="App">
       <div className='box'>
+      <h1>Tic Tac Toe</h1>
         <table>
           <tbody>
             <tr>
-              
               <td onClick={()=>handle(0)}>{cell[0]}</td>
               <td onClick={()=>handle(1)}>{cell[1]}</td>
               <td onClick={()=>handle(2)}>{cell[2]}</td>
@@ -83,8 +99,8 @@ function App() {
         </table>
         {winner &&(
           <>
-          <p>{winner} is the winner</p>
-          <button>Restart</button>
+          <p>{winner}</p>
+          <button onClick={()=>restart()}>Restart</button>
           </>
         )}
       </div>

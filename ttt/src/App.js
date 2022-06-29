@@ -4,6 +4,39 @@ import {useState} from 'react'
 function App() {
   const [turn , change] = useState('x')
   const [cell, setcell] = useState((Array(9).fill('')));
+  const [winner, setwinner] = useState('')
+
+  const checkWinner = (squares) => {
+    let combination = {
+      across: [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8]
+      ],
+      down: [
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8]
+      ],
+      diagonal: [
+        [0, 4, 8],
+        [2, 4, 6]
+      ]
+    }
+
+    for (let combos in combination){
+      combination[combos].forEach(element => {
+        if (squares[element[0]] === '' ||
+            squares[element[1]] === '' ||
+            squares[element[2]] === ''
+        ){}
+        else if(squares[element[0]] === squares[element[1]] && 
+          squares[element[1]] === squares[element[2]]){
+            setwinner(squares[element[0]])
+          }
+      });
+    }
+  }
 
   const handle = (num) =>{
     if (cell[num] !== ''){
@@ -21,6 +54,7 @@ function App() {
 
     setcell(squares)
     console.log(squares)
+    checkWinner(squares)
   }
 
   return (

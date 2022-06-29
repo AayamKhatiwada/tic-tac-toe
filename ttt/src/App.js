@@ -29,8 +29,9 @@ function App() {
         if (squares[element[0]] === '' ||
             squares[element[1]] === '' ||
             squares[element[2]] === ''
-        ){}
-        else if(squares[element[0]] === squares[element[1]] && 
+        ){
+
+        }else if(squares[element[0]] === squares[element[1]] && 
           squares[element[1]] === squares[element[2]]){
             setwinner(squares[element[0]])
           }
@@ -80,6 +81,12 @@ function App() {
             </tr>
           </tbody>
         </table>
+        {winner &&(
+          <>
+          <p>{winner} is the winner</p>
+          <button>Restart</button>
+          </>
+        )}
       </div>
     </div>
   );

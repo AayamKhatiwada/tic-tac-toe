@@ -6,6 +6,10 @@ function App() {
   const [cell, setcell] = useState((Array(9).fill('')));
 
   const handle = (num) =>{
+    if (cell[num] !== ''){
+      return
+    }
+
     let squares = [...cell]
     if (turn === 'x'){
       squares[num] = 'x'

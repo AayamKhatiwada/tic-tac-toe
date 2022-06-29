@@ -7,7 +7,10 @@ td{
 
 
 .box{
-  
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  width: 400px;
+  margin-left: 20%;
+  align-items: center;
 }
